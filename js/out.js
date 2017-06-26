@@ -9906,7 +9906,7 @@ var CatTable = function (_React$Component) {
             var maleRows = male.map(function (cat) {
                 return _react2.default.createElement(
                     'tr',
-                    null,
+                    { key: cat.name },
                     _react2.default.createElement(
                         'td',
                         null,
