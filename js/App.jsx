@@ -8,7 +8,7 @@ class App extends React.Component {
         return (
           <section>
             <SearchBar />
-            <CatTable />
+            <CatTable kitties={this.props.kitties}/>
           </section>
         )
     }
