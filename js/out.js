@@ -9927,7 +9927,7 @@ exports.default = CatRow;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9944,6 +9944,10 @@ var _CatRow = __webpack_require__(85);
 
 var _CatRow2 = _interopRequireDefault(_CatRow);
 
+var _CatCategoryRow = __webpack_require__(188);
+
+var _CatCategoryRow2 = _interopRequireDefault(_CatCategoryRow);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9953,83 +9957,67 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var CatTable = function (_React$Component) {
-  _inherits(CatTable, _React$Component);
+    _inherits(CatTable, _React$Component);
 
-  function CatTable() {
-    _classCallCheck(this, CatTable);
+    function CatTable() {
+        _classCallCheck(this, CatTable);
 
-    return _possibleConstructorReturn(this, (CatTable.__proto__ || Object.getPrototypeOf(CatTable)).apply(this, arguments));
-  }
-
-  _createClass(CatTable, [{
-    key: 'getRows',
-    value: function getRows(category) {
-      var items = this.props.kitties.filter(function (cat) {
-        return cat.category === category;
-      });
-
-      var rows = items.map(function (cat) {
-        return _react2.default.createElement(_CatRow2.default, { key: cat.name, cat: cat });
-      });
-
-      return rows;
+        return _possibleConstructorReturn(this, (CatTable.__proto__ || Object.getPrototypeOf(CatTable)).apply(this, arguments));
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var maleRows = this.getRows('male');
-      var femaleRows = this.getRows('female');
 
-      return _react2.default.createElement(
-        'table',
-        null,
-        _react2.default.createElement(
-          'thead',
-          null,
-          _react2.default.createElement(
-            'tr',
-            null,
-            _react2.default.createElement(
-              'th',
-              null,
-              'Name'
-            ),
-            _react2.default.createElement(
-              'th',
-              null,
-              'Age'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'tbody',
-          null,
-          _react2.default.createElement(
-            'tr',
-            null,
-            _react2.default.createElement(
-              'th',
-              { colSpan: '2' },
-              'male'
-            )
-          ),
-          maleRows,
-          _react2.default.createElement(
-            'tr',
-            null,
-            _react2.default.createElement(
-              'th',
-              { colSpan: '2' },
-              'female'
-            )
-          ),
-          femaleRows
-        )
-      );
-    }
-  }]);
+    _createClass(CatTable, [{
+        key: 'getRows',
+        value: function getRows(category) {
+            var items = this.props.kitties.filter(function (cat) {
+                return cat.category === category;
+            });
 
-  return CatTable;
+            var rows = items.map(function (cat) {
+                return _react2.default.createElement(_CatRow2.default, { key: cat.name, cat: cat });
+            });
+
+            return rows;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var maleRows = this.getRows('male');
+            var femaleRows = this.getRows('female');
+
+            return _react2.default.createElement(
+                'table',
+                null,
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Name'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Age'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(_CatCategoryRow2.default, { category: 'male' }),
+                    maleRows,
+                    _react2.default.createElement(_CatCategoryRow2.default, { category: 'female' }),
+                    femaleRows
+                )
+            );
+        }
+    }]);
+
+    return CatTable;
 }(_react2.default.Component);
 
 exports.default = CatTable;
@@ -22725,6 +22713,64 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(21);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(20);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CatCategoryRow = function (_React$Component) {
+    _inherits(CatCategoryRow, _React$Component);
+
+    function CatCategoryRow() {
+        _classCallCheck(this, CatCategoryRow);
+
+        return _possibleConstructorReturn(this, (CatCategoryRow.__proto__ || Object.getPrototypeOf(CatCategoryRow)).apply(this, arguments));
+    }
+
+    _createClass(CatCategoryRow, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'th',
+                    { colSpan: '2' },
+                    this.props.category
+                )
+            );
+        }
+    }]);
+
+    return CatCategoryRow;
+}(_react2.default.Component);
+
+exports.default = CatCategoryRow;
 
 /***/ })
 /******/ ]);

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CatRow from './CatRow.jsx';
+import CatCategoryRow from './CatCategoryRow.jsx';
+
 
 class CatTable extends React.Component {
 
@@ -29,13 +31,9 @@ class CatTable extends React.Component {
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                    <th colSpan="2">male</th>
-                  </tr>
+                  <CatCategoryRow category='male'/>
                   {maleRows}
-                  <tr>
-                      <th colSpan="2">female</th>
-                  </tr>
+                  <CatCategoryRow category='female'/>
                   {femaleRows}
               </tbody>
           </table>
