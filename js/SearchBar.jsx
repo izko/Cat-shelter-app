@@ -9,12 +9,12 @@ class SearchBar extends React.Component {
               <form>
                   <div>
                     <label>
-                      <input type="text" value = {this.props.filterText} />
+                      <input type="text" onChange={this.props.onTextChange} value = {this.props.filterText} />
                     </label>
                   </div>
                   <div>
                     <label>
-                      <input type="checkbox" value="1" checked={this.props.likesKids}/> Only show cats that like kids
+                      <input onChange={this.props.onCheckboxChange} type="checkbox" value="1" checked={this.props.likesKids}/> Only show cats that like kids
                     </label>
                   </div>
               </form>

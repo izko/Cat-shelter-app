@@ -9810,9 +9810,21 @@ var App = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 
+        _this.handleTextChange = function (event) {
+            _this.setState({
+                filterText: event.target.value
+            });
+        };
+
+        _this.handleCheckboxChange = function (event) {
+            _this.setState({
+                likesKids: event.target.checked
+            });
+        };
+
         _this.state = {
             filterText: '',
-            likesKids: true
+            likesKids: false
         };
         return _this;
     }
@@ -9823,7 +9835,7 @@ var App = function (_React$Component) {
             return _react2.default.createElement(
                 'section',
                 null,
-                _react2.default.createElement(_SearchBar2.default, { filterText: this.state.filterText, likesKids: this.state.likesKids }),
+                _react2.default.createElement(_SearchBar2.default, { onTextChange: this.handleTextChange, onCheckboxChange: this.handleCheckboxChange, filterText: this.state.filterText, likesKids: this.state.likesKids }),
                 _react2.default.createElement(_CatTable2.default, { kitties: this.props.kitties })
             );
         }
@@ -10140,7 +10152,7 @@ var SearchBar = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.props.filterText })
+              _react2.default.createElement('input', { type: 'text', onChange: this.props.onTextChange, value: this.props.filterText })
             )
           ),
           _react2.default.createElement(
@@ -10149,7 +10161,7 @@ var SearchBar = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement('input', { type: 'checkbox', value: '1', checked: this.props.likesKids }),
+              _react2.default.createElement('input', { onChange: this.props.onCheckboxChange, type: 'checkbox', value: '1', checked: this.props.likesKids }),
               ' Only show cats that like kids'
             )
           )
