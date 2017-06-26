@@ -4,6 +4,20 @@ import ReactDOM from 'react-dom';
 class CatTable extends React.Component {
     render () {
       console.log(this.props.kitties);
+
+      const male = this.props.kitties.filter(cat => {
+        return cat.category === 'male';
+      });
+
+      const maleRows = male.map(cat => {
+        return (
+          <tr>
+            <td>{cat.name}</td>
+            <td>{cat.age}</td>
+          </tr>
+        );
+});
+
         return (
           <table>
               <thead>
@@ -13,17 +27,7 @@ class CatTable extends React.Component {
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <th colSpan="2">male</th>
-                  </tr>
-                  <tr>
-                      <td>Fidel Catstro</td>
-                      <td>4</td>
-                  </tr>
-                  <tr>
-                      <td>Hairy Potter</td>
-                      <td>4</td>
-                  </tr>
+                  {maleRows}
                   <tr>
                       <th colSpan="2">female</th>
                   </tr>
