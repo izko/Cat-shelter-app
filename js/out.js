@@ -9895,15 +9895,13 @@ var CatTable = function (_React$Component) {
     }
 
     _createClass(CatTable, [{
-        key: 'render',
-        value: function render() {
-            console.log(this.props.kitties);
-
-            var male = this.props.kitties.filter(function (cat) {
-                return cat.category === 'male';
+        key: 'getRows',
+        value: function getRows(type) {
+            var items = this.props.kitties.filter(function (cat) {
+                return cat.type === type;
             });
 
-            var maleRows = male.map(function (cat) {
+            var rows = items.map(function (cat) {
                 return _react2.default.createElement(
                     'tr',
                     { key: cat.name },
@@ -9919,6 +9917,15 @@ var CatTable = function (_React$Component) {
                     )
                 );
             });
+
+            return rows;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            console.log(this.props.kitties);
+
+            var maleRows = this.getRows('male');
 
             return _react2.default.createElement(
                 'table',
