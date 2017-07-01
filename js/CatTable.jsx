@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import CatRow from './CatRow.jsx';
 import CatCategoryRow from './CatCategoryRow.jsx';
 
+const style = {
+  color:'red',
+  backgroundColor: 'salmon',
+}
 
 class CatTable extends React.Component {
 
@@ -23,20 +27,22 @@ class CatTable extends React.Component {
     const femaleRows = this.getRows('female');
 
         return (
-          <table>
+          <div className="container">
+            <table className="table">
               <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Age</th>
-                  </tr>
+                <tr>
+                  <th style = {{style}}>Name</th>
+                  <th>Age</th>
+                </tr>
               </thead>
               <tbody>
-                  <CatCategoryRow category='male'/>
-                  {maleRows}
-                  <CatCategoryRow category='female'/>
-                  {femaleRows}
+                <CatCategoryRow category='male'/>
+                {maleRows}
+                <CatCategoryRow category='female'/>
+                {femaleRows}
               </tbody>
-          </table>
+            </table>
+          </div>
         );
   }
 }

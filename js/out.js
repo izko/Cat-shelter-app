@@ -9987,12 +9987,16 @@ var CatRow = function (_React$Component) {
   _createClass(CatRow, [{
     key: 'render',
     value: function render() {
+      var style = {};
+      if (!this.props.cat.likesKids) {
+        style.color = 'red';
+      }
       return _react2.default.createElement(
         'tr',
         null,
         _react2.default.createElement(
           'td',
-          null,
+          { style: style },
           this.props.cat.name
         ),
         _react2.default.createElement(
@@ -10017,7 +10021,7 @@ exports.default = CatRow;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -10046,68 +10050,77 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var style = {
+  color: 'red',
+  backgroundColor: 'salmon'
+};
+
 var CatTable = function (_React$Component) {
-    _inherits(CatTable, _React$Component);
+  _inherits(CatTable, _React$Component);
 
-    function CatTable() {
-        _classCallCheck(this, CatTable);
+  function CatTable() {
+    _classCallCheck(this, CatTable);
 
-        return _possibleConstructorReturn(this, (CatTable.__proto__ || Object.getPrototypeOf(CatTable)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (CatTable.__proto__ || Object.getPrototypeOf(CatTable)).apply(this, arguments));
+  }
+
+  _createClass(CatTable, [{
+    key: 'getRows',
+    value: function getRows(category) {
+      var items = this.props.kitties.filter(function (cat) {
+        return cat.category === category;
+      });
+
+      var rows = items.map(function (cat) {
+        return _react2.default.createElement(_CatRow2.default, { key: cat.name, cat: cat });
+      });
+
+      return rows;
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      var maleRows = this.getRows('male');
+      var femaleRows = this.getRows('female');
 
-    _createClass(CatTable, [{
-        key: 'getRows',
-        value: function getRows(category) {
-            var items = this.props.kitties.filter(function (cat) {
-                return cat.category === category;
-            });
-
-            var rows = items.map(function (cat) {
-                return _react2.default.createElement(_CatRow2.default, { key: cat.name, cat: cat });
-            });
-
-            return rows;
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var maleRows = this.getRows('male');
-            var femaleRows = this.getRows('female');
-
-            return _react2.default.createElement(
-                'table',
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'table',
+          { className: 'table' },
+          _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'th',
+                { style: { style: style } },
+                'Name'
+              ),
+              _react2.default.createElement(
+                'th',
                 null,
-                _react2.default.createElement(
-                    'thead',
-                    null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'Name'
-                        ),
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'Age'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'tbody',
-                    null,
-                    _react2.default.createElement(_CatCategoryRow2.default, { category: 'male' }),
-                    maleRows,
-                    _react2.default.createElement(_CatCategoryRow2.default, { category: 'female' }),
-                    femaleRows
-                )
-            );
-        }
-    }]);
+                'Age'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'tbody',
+            null,
+            _react2.default.createElement(_CatCategoryRow2.default, { category: 'male' }),
+            maleRows,
+            _react2.default.createElement(_CatCategoryRow2.default, { category: 'female' }),
+            femaleRows
+          )
+        )
+      );
+    }
+  }]);
 
-    return CatTable;
+  return CatTable;
 }(_react2.default.Component);
 
 exports.default = CatTable;
@@ -10153,7 +10166,6 @@ var SearchBar = function (_React$Component) {
   _createClass(SearchBar, [{
     key: 'render',
     value: function render() {
-      console.log(this.props);
       return _react2.default.createElement(
         'header',
         null,
@@ -10166,7 +10178,7 @@ var SearchBar = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement('input', { type: 'text', onChange: this.props.onTextChange, value: this.props.filterText })
+              _react2.default.createElement('input', { type: 'text', placeholder: 'search by the name of the cat', onChange: this.props.onTextChange, value: this.props.filterText })
             )
           ),
           _react2.default.createElement(
