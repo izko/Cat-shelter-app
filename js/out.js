@@ -9987,16 +9987,16 @@ var CatRow = function (_React$Component) {
   _createClass(CatRow, [{
     key: 'render',
     value: function render() {
-      var style = {};
-      if (!this.props.cat.likesKids) {
-        style.color = 'red';
-      }
+      // const style = {};
+      // if (!this.props.cat.likesKids){
+      //   style.color = 'red';
+      // }
       return _react2.default.createElement(
         'tr',
         null,
         _react2.default.createElement(
           'td',
-          { style: style },
+          null,
           this.props.cat.name
         ),
         _react2.default.createElement(

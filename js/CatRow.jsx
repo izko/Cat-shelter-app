@@ -5,13 +5,13 @@ class CatRow extends React.Component {
 
 
     render () {
-      const style = {};
-      if (!this.props.cat.likesKids){
-        style.color = 'red';
-      }
+      // const style = {};
+      // if (!this.props.cat.likesKids){
+      //   style.color = 'red';
+      // }
         return (
           <tr>
-            <td style={style}>{this.props.cat.name}</td>
+            <td>{this.props.cat.name}</td>
             <td>{this.props.cat.age}</td>
           </tr>
         );

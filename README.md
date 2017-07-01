@@ -1,2 +1,10 @@
 # Cat-shelter-app
-Cat shelter app made with react.js
+Cat shelter application, where you can find cats that need adoption.
+
+Made with react.js, after five days of studying react at CodersLab coding bootcamp.
+
+## Features:
+* react.js
+* sass
+* webpack
+* gulp
