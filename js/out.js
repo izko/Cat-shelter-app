@@ -9881,7 +9881,7 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var kitties = [{ category: "male", age: "4", likesKids: true, name: "Fidel Catstro" }, { category: "male", age: "9", likesKids: true, name: "Hairy Potter" }, { category: "male", age: "2", likesKids: false, name: "Grumpy" }, { category: "female", age: "1", likesKids: true, name: "Jude Paw" }, { category: "female", age: "2", likesKids: false, name: "Lucifurr" }, { category: "female", age: "3", likesKids: true, name: "Meowly Cyrus" }];
+var kitties = [{ category: "male", age: "4", likesKids: true, name: "Fidel Catstro" }, { category: "male", age: "9", likesKids: true, name: "Hairy Potter" }, { category: "male", age: "2", likesKids: false, name: "Grumpy" }, { category: "female", age: "1", likesKids: true, name: "Jude Paw" }, { category: "female", age: "2", likesKids: false, name: "Lucifurr" }, { category: "female", age: "3", likesKids: true, name: "Meowly Cyrus" }, { category: "female", age: "21", likesKids: true, name: "Grandma Mandarina" }, { category: "male", age: "3", likesKids: true, name: "Citrus" }, { category: "female", age: "6", likesKids: false, name: "Madonna" }, { category: "male", age: "3", likesKids: true, name: "Ronald Wiskey" }, { category: "female", age: "2", likesKids: true, name: "Woodienna All" }, { category: "male", age: "1", likesKids: true, name: "Meowly Cyrus" }, { category: "female", age: "9", likesKids: false, name: "Ann Ey" }, { category: "male", age: "4", likesKids: true, name: "Jon Smeooow" }];
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -10050,11 +10050,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var style = {
-  color: 'red',
-  backgroundColor: 'salmon'
-};
-
 var CatTable = function (_React$Component) {
   _inherits(CatTable, _React$Component);
 
@@ -10097,7 +10092,7 @@ var CatTable = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'th',
-                { style: { style: style } },
+                null,
                 'Name'
               ),
               _react2.default.createElement(
